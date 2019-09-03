@@ -139,6 +139,11 @@ class AddPersonelScreen extends Component {
     }
     async savePersonel(){
         try{
+            if(this.state.Ehliyet  == "" || this.state.ProfilFoto  == "" ||this.state.SabikaKaydi  == "" || this.state.Psikoteknik  == "" || this.state.SrcBelgesi  == "")
+            {
+                alert("Lütfen tüm resim alanlarını doldurunuz.")
+                return;
+            }
         let data = {
             Role: this.state.Role,
             PersonalInfo:{
