@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Text, View,ScrollView, TouchableOpacity } from 'react-native'
-import { ListItem } from '../components/Items';
+import { ListItem } from '../../components/Items';
 import {vh} from 'react-native-expo-viewport-units';
 import {Header,Left,Right,Body, Icon} from 'native-base';
 import {LinearGradient} from 'expo-linear-gradient';
-import styles from '../constants/Styles'
-import UetdsHeader from '../components/UetdsHeader';
+import styles from '../../constants/Styles'
+import UetdsHeader from '../../components/UetdsHeader';
 export default class VehicleListScreen extends Component {
     static navigationOptions = {
         headerMode : 'none',
@@ -23,8 +23,8 @@ export default class VehicleListScreen extends Component {
                 </UetdsHeader>
                     <View style={{height:vh(100),backgroundColor:"#fff"}}>
                     <ScrollView style={{height:vh(100)}}>
-                        <ListItem image={require('../assets/images/ProfilFoto.jpg')} username={"Kaan Salı"} userRole={"Yönetici"}/>
-                        <ListItem image={require('../assets/images/ProfilFoto.jpg')} username={"Kaan Salı2"} userRole={"Yönetici"}/>
+                        <ListItem image={require('../../assets/images/ProfilFoto.jpg')} username={"Kaan Salı"} userRole={"Yönetici"}/>
+                        <ListItem image={require('../../assets/images/ProfilFoto.jpg')} username={"Kaan Salı2"} userRole={"Yönetici"}/>
                     </ScrollView>
                 </View>
                 

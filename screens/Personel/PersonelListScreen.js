@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Text, View,ScrollView,TouchableOpacity } from 'react-native'
-import { ListItem } from '../components/Items';
+import { ListItem } from '../../components/Items';
 import {vh} from 'react-native-expo-viewport-units';
 import {Header,Left,Right,Body, Icon, Button} from 'native-base';
 import {LinearGradient} from 'expo-linear-gradient';
-import styles from '../constants/Styles'
-import UetdsHeader from '../components/UetdsHeader';
+import styles from '../../constants/Styles'
+import UetdsHeader from '../../components/UetdsHeader';
 import { withNavigation } from 'react-navigation';
 class PersonelListScreen extends Component {
     constructor(props){

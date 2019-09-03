@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 import { Text, View, Image , ScrollView, KeyboardAvoidingView, TouchableOpacity, Button } from 'react-native'
-import styles from '../constants/Styles'
-import UetdsHeader from '../components/UetdsHeader';
+import styles from '../../constants/Styles'
+import UetdsHeader from '../../components/UetdsHeader';
 import { Form, Container, Picker } from 'native-base';
 import {vh, vw} from 'react-native-expo-viewport-units'
 import { withNavigation } from 'react-navigation';
-import UetdsPicker from '../components/UetdsPicker';
-import UetdsInput from '../components/UetdsInput';
-import UetdsImage from '../components/UetdsImage';
-import UetdsMultiPicker from '../components/UetdsMultiPicker';
+import UetdsPicker from '../../components/UetdsPicker';
+import UetdsInput from '../../components/UetdsInput';
+import UetdsImage from '../../components/UetdsImage';
+import UetdsMultiPicker from '../../components/UetdsMultiPicker';
 import {LinearGradient} from 'expo-linear-gradient';
-import BlankRole from '../models/Roles/BlankRole';
-import YoneticiRole from '../models/Roles/YoneticiRole';
-import SoforRole from '../models/Roles/SoforRole';
+import BlankRole from '../../models/Roles/BlankRole';
+import YoneticiRole from '../../models/Roles/YoneticiRole';
+import SoforRole from '../../models/Roles/SoforRole';
 import {withNavigationFocus} from 'react-navigation'
 
 const languages = [{

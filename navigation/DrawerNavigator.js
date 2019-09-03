@@ -2,13 +2,13 @@ import React from 'react'
 import {SafeAreaView, ScrollView, Image, View, Text, Button} from 'react-native';
 import {createAppContainer,createDrawerNavigator, createStackNavigator , DrawerItems} from 'react-navigation';
 import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
-import PersonelListScreen from '../screens/PersonelListScreen';
-import VehicleListScreen from '../screens/VehicleListScreen';
+import PersonelListScreen from '../screens/Personel/PersonelListScreen';
+import VehicleListScreen from '../screens/Vehicle/VehicleListScreen';
 import Logout from '../components/Logout';
-import AddPersonelScreen from '../screens/AddPersonelScreen';
-import AddVehicleScreen from '../screens/AddVehicleScreen';
+import AddPersonelScreen from '../screens/Personel/AddPersonelScreen';
+import AddVehicleScreen from '../screens/Vehicle/AddVehicleScreen';
 import {Root} from "native-base";
-import PersonelDetailsScreen from '../screens/PersonelDetails';
+import PersonelDetailsScreen from '../screens/Personel/PersonelDetails';
 
 const CustomDrawer = (props) =>(
     <Root style={{ flex:1 }}>
