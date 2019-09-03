@@ -14,8 +14,8 @@ export class ListItem extends React.Component{
             <Image source={this.props.image} style={this.styles.image}/>
           </View>
           <View style={this.styles.textContainer}>
-            <Text style={this.styles.usernameText}>{this.props.username}</Text>
-            <Text style={this.styles.userRoleText}>{this.props.userRole}</Text>
+            <Text style={this.styles.usernameText}>{this.props.title}</Text>
+            <Text style={this.styles.userRoleText}>{this.props.subtitle}</Text>
           </View>
         </View>
       </TouchableOpacity>

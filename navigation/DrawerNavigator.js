@@ -31,6 +31,7 @@ const DrawerNavigator = createDrawerNavigator(
         Personels : PersonelListScreen, 
         Vehicles : VehicleListScreen,
         PersonelDetails : PersonelDetailsScreen,
+        AddVehicle : AddVehicleScreen,
         AddPersonel : AddPersonelScreen,
         Logout : Logout
     },

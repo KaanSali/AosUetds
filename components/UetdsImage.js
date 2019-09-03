@@ -61,7 +61,6 @@ export default class UetdsImage extends Component {
 
     render() {
         if(this.props.didImageLoaded === true){
-            console.log("true")
             return (
                 <View style={{justifyContent:"center",flex:1,alignItems:"center"}}>
                 <Content>
@@ -81,7 +80,6 @@ export default class UetdsImage extends Component {
                 </View>
             )
         }else{
-            console.log("false")
             return (
                 <View style={{justifyContent:"center",flex:1,alignItems:"center"}}>
                 <Content>
