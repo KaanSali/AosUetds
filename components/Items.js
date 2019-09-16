@@ -11,7 +11,7 @@ export class ListItem extends React.Component{
       <TouchableOpacity style={this.styles.shadow} underlayColor="white" onPress={this.props.onPress}>
         <View style={[this.styles.itemContainer , this.styles.flex_row, this.styles.shadow]}>
           <View style={this.styles.imageContainer}>
-            <Image source={this.props.image} style={this.styles.image}/>
+            <Image source={{uri : this.props.image + `?${new Date()}`}} style={this.styles.image}/>
           </View>
           <View style={this.styles.textContainer}>
             <Text style={this.styles.usernameText}>{this.props.title}</Text>

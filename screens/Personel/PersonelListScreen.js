@@ -39,7 +39,7 @@ class PersonelListScreen extends Component {
         this.getPersonelList.then((perList)=>{
             perList = JSON.parse(perList);
             let items = perList.map((item) =>
-                <ListItem key={item.PersonalInfo.KimlikNo} onPress={()=> this.props.navigation.navigate("PersonelDetails",{KimlikNo: item.PersonalInfo.KimlikNo})}  image={{uri : "http://31.169.71.253:8665/"+item.PersonelFotograflari.ProfilFoto}} title={item.PersonalInfo.Ad + " " + item.PersonalInfo.Soyad} subtitle={item.Role.RoleName}/>
+                <ListItem key={item.PersonalInfo.KimlikNo} onPress={()=> this.props.navigation.navigate("PersonelDetails",{KimlikNo: item.PersonalInfo.KimlikNo})}  image={"http://31.169.71.253:8665/"+item.PersonelFotograflari.ProfilFoto} title={item.PersonalInfo.Ad + " " + item.PersonalInfo.Soyad} subtitle={item.Role.RoleName}/>
             )
             this.setState({list:items}) 
         }).catch((error) =>{

@@ -59,7 +59,11 @@ class PersonelDetailsScreen extends Component {
                     SrcBelgesi : myJson.PersonelFotograflari.SrcBelgesi,
                     Psikoteknik : myJson.PersonelFotograflari.Psikoteknik,
                     KonustuguDiller : myJson.KonustuguDiller,
-                    didImagesLoaded : false
+                    didEhliyetLoaded : false,
+                    didProfilFotoLoaded : false,
+                    didSabikaKaydiLoaded : false,
+                    didSrcBelgesiLoaded : false,
+                    didPsikoteknikLoaded : false
                 })
                 this.render()
             }catch(error){console.log(error)}
@@ -121,11 +125,11 @@ class PersonelDetailsScreen extends Component {
     render() {
         return (
             <Container>
-                <KeyboardAvoidingView style={styles.container} behavior="position" enabled>
+                <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
                 <UetdsHeader title="Personel Bilgileri"/>
                 <View style={{height:vh(86),backgroundColor:"#fff"}}>
                     <ScrollView style={{flex:1,flexDirection:"column"}}>
-                        <UetdsImage label="Profil Fotoğrafı" onChange={() => this.setState({didImagesLoaded:true})} imageSrc={`http://31.169.71.253:8665/${this.state.ProfilFoto}`} base64={(b64) => this.setState({ProfilFoto:b64})} didImageLoaded={this.state.didImagesLoaded}/>
+                        <UetdsImage label="Profil Fotoğrafı" onChange={() => this.setState({didProfilFotoLoaded:true})} imageSrc={`http://31.169.71.253:8665/${this.state.ProfilFoto}`} base64={(b64) => this.setState({ProfilFoto:b64})} didImageLoaded={this.state.didProfilFotoLoaded}/>
                     <Form style={{flex:1}}>
                         <UetdsInput placeholder={"Adı"} onChangeText={(text) => this.setState({Ad:text})} value={this.state.Ad}/>
                         <UetdsInput placeholder={"Soyadı"} onChangeText={(text) => this.setState({Soyad:text})} value={this.state.Soyad}/>
@@ -145,16 +149,16 @@ class PersonelDetailsScreen extends Component {
                         <UetdsMultiPicker placeholder={"Konuştuğu Diller"} items={languages} onSelectedItemsChange={this.onSelectedItemsChange.bind(this)} selectedItems={this.state.KonustuguDiller}/>
                         <View style={{marginTop:15,marginBottom:15}}>
                             <View style={{flex:1,flexDirection:"row"}}>
-                                <UetdsImage label="Ehliyet" imageSrc={`http://31.169.71.253:8665/${this.state.Ehliyet}`} base64={(b64) => this.setState({Ehliyet:b64})} didImageLoaded={this.state.didImagesLoaded}/>
-                                <UetdsImage label="Src Belgesi" imageSrc={`http://31.169.71.253:8665/${this.state.SrcBelgesi}`} base64={(b64) => this.setState({SrcBelgesi:b64})} didImageLoaded={this.state.didImagesLoaded}/>
+                                <UetdsImage label="Ehliyet" imageSrc={`http://31.169.71.253:8665/${this.state.Ehliyet}`} onChange={() => this.setState({didEhliyetLoaded:true})} base64={(b64) => this.setState({Ehliyet:b64})} didImageLoaded={this.state.didEhliyetLoaded}/>
+                                <UetdsImage label="Src Belgesi" imageSrc={`http://31.169.71.253:8665/${this.state.SrcBelgesi}`} onChange={() => this.setState({didSrcBelgesiLoaded:true})} base64={(b64) => this.setState({SrcBelgesi:b64})} didImageLoaded={this.state.didSrcBelgesiLoaded}/>
                             </View>
                             <View style={{flex:1,flexDirection : "row"}}>
-                                <UetdsImage label="Sabıka Kaydı" imageSrc={`http://31.169.71.253:8665/${this.state.SabikaKaydi}`} base64={(b64) => this.setState({SabikaKaydi:b64})} didImageLoaded={this.state.didImagesLoaded}/>
-                                <UetdsImage label="Psikoteknik" imageSrc={`http://31.169.71.253:8665/${this.state.Psikoteknik}`} base64={(b64) => this.setState({Psikoteknik:b64})} didImageLoaded={this.state.didImagesLoaded}/>
+                                <UetdsImage label="Sabıka Kaydı" imageSrc={`http://31.169.71.253:8665/${this.state.SabikaKaydi}`} onChange={() => this.setState({didSabikaKaydiLoaded:true})} base64={(b64) => this.setState({SabikaKaydi:b64})} didImageLoaded={this.state.didSabikaKaydiLoaded}/>
+                                <UetdsImage label="Psikoteknik" imageSrc={`http://31.169.71.253:8665/${this.state.Psikoteknik}`} onChange={() => this.setState({didPsikoteknikLoaded:true})} base64={(b64) => this.setState({Psikoteknik:b64})} didImageLoaded={this.state.didPsikoteknikLoaded}/>
                             </View>
                         </View>
                     </Form>
-                        <TouchableOpacity style={{height:50,width:vw(50),marginBottom:30,alignSelf:"center",flex:1}} onPress={() => this.savePersonel()}>
+                        <TouchableOpacity style={{height:50,width:vw(50),marginBottom:30,alignSelf:"center",flex:1}}  onPress={() => this.savePersonel()}>
                             <LinearGradient start={[0,0.5]} end={[1,0.5]} colors={['#020024','#090979','#49a9f8']} style={{height:50,width:vw(50),borderRadius : 0,backgroundColor : "rgb(2,0,36)",justifyContent: "center",alignItems:"center"}} >
                                 <Text style={{fontSize:20,fontWeight:"bold",color:"#fff"}}>Kaydet</Text>
                             </LinearGradient>
@@ -216,15 +220,19 @@ class PersonelDetailsScreen extends Component {
             }, 
             KonustuguDiller:this.state.KonustuguDiller,
         } 
-        let response = await fetch('http://31.169.71.253:8665/api/Personel/AddPersonel',{
+        fetch('http://31.169.71.253:8665/api/Personel/UpdatePersonel',{
             method : 'POST',
             headers:{
                 Accept: 'application/json',
                 'Content-Type' : 'application/json'
             },
             body: JSON.stringify(data)
+        }).then(function(response){
+            return response.json();
+        }).then(function(myJson){
+            alert(JSON.stringify(myJson))
         })
-        alert(JSON.stringify(response))
+        
     }catch(error){
         console.error(JSON.stringify(error));
     }}

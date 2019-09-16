@@ -92,7 +92,7 @@ export default class UetdsImage extends Component {
                         buttonIndex => {
                             this.ImageAction(buttonIndex); 
                         })}> 
-                        <Image source={{uri : this.props.imageSrc}} style={styles.borderImg}/>
+                        <Image source={{uri : this.props.imageSrc + `?${new Date()}`}} style={styles.borderImg}/>
                     </TouchableWithoutFeedback>
                 </Content>
                 <Text style={{flex:1,fontSize:22}}> {this.props.label} </Text>

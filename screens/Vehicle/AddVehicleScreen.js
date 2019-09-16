@@ -70,7 +70,7 @@ export default class AddVehicleScreen extends Component {
     render() {
         return (
             <Container>
-                <KeyboardAvoidingView style={styles.container} behavior="position" enabled>
+                <KeyboardAvoidingView style={styles.container} behavior="height" enabled>
                     <UetdsHeader title="Araç Kaydı" />
                     <View style={{ height: vh(86), backgroundColor: "#fff" }}>
                         <ScrollView style={{ flex: 1, flexDirection: "column" }}>
@@ -161,7 +161,6 @@ export default class AddVehicleScreen extends Component {
                 },
                 AracOzellikleri: this.state.AracOzellikleri,
             }            
-            return;
             let response = await fetch('http://31.169.71.253:8665/api/Personel/AddPersonel', {
                 method: 'POST',
                 headers: {

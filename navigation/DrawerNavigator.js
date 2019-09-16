@@ -9,13 +9,14 @@ import AddPersonelScreen from '../screens/Personel/AddPersonelScreen';
 import AddVehicleScreen from '../screens/Vehicle/AddVehicleScreen';
 import {Root} from "native-base";
 import PersonelDetailsScreen from '../screens/Personel/PersonelDetails';
+import VehicleDetailsScreen from '../screens/Vehicle/VehicleDetailsScreen';
 
 const CustomDrawer = (props) =>(
     <Root style={{ flex:1 }}>
     <SafeAreaView style={{ flex:1 }}>
         <View style = {styles.drawerProfile}>
             <Image source={require('../assets/images/ProfilFoto.jpg')} style={styles.drawerProfileImage}/>
-            <Text style={styles.drawerProfileName}>Kaan Salıı</Text>
+            <Text style={styles.drawerProfileName}>Kaan Salı</Text>
         </View>
         <View style={{flex:3}}>
         <ScrollView>
@@ -29,10 +30,11 @@ const CustomDrawer = (props) =>(
 const DrawerNavigator = createDrawerNavigator(
     {
         Personels : PersonelListScreen, 
-        Vehicles : VehicleListScreen,
-        PersonelDetails : PersonelDetailsScreen,
-        AddVehicle : AddVehicleScreen,
         AddPersonel : AddPersonelScreen,
+        PersonelDetails : PersonelDetailsScreen,
+        Vehicles : VehicleListScreen,
+        AddVehicle : AddVehicleScreen,
+        VehicleDetails : VehicleDetailsScreen,
         Logout : Logout
     },
     {
